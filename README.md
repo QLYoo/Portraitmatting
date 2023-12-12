@@ -1,4 +1,4 @@
-# Portraitmatting
+# Portraitmatting WIP
 
 Portrait matting model for academic use only.
 
@@ -43,7 +43,8 @@ If you use this model in your research, please cite this project to acknowledge 
 
 ## 介绍
 
-Portraitmatting 是一个基于深度学习的模型，专为人像抠图任务设计。由于训练数据可能涉及版权问题，仅限于学术用途，禁止用于商业用途。
+Portraitmatting 是一个基于深度学习的模型，专为人像抠图任务设计。由于训练数据可能涉及版权问题，仅限于学术用途，禁止用于商业用途。同时由于标注问题，模型对一些装饰物可能预测不准，测试中发现Swin-Tiny和Swin-Base
+的模型其实性能更好暂不公开。
 
 ## 环境要求
 
