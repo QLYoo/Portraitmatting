@@ -4,13 +4,18 @@ Portrait matting model for academic use only.
 
 ## Introduction
 
-Portraitmatting is a deep learning-based model designed for portrait matting tasks. It is intended for academic use only, and usage for commercial purposes is restricted due to potential copyright concerns with the training data.
+Portraitmatting is a deep learning-based model designed for portrait matting tasks. It is intended for academic use only, and usage for commercial purposes is restricted due to potential copyright concerns with the training data. We also evaluate the Swin-Tiny and Swin-Base based networks, which achieve better performance. However, we do not plan to release them for now.
+
+## Usage
+
+You may check eval_image_folder.py or eval_webcam.py for an example of how to use the model.
 
 ## Requirements
 
 - OpenCV
 - PyTorch
 - NumPy
+- Pymatting (for more accurate foreground extraction)
 
 ## Hardware Requirements
 
@@ -43,14 +48,15 @@ If you use this model in your research, please cite this project to acknowledge 
 
 ## 介绍
 
-Portraitmatting 是一个基于深度学习的模型，专为人像抠图任务设计。由于训练数据可能涉及版权问题，仅限于学术用途，禁止用于商业用途。同时由于标注问题，模型对一些装饰物可能预测不准，测试中发现Swin-Tiny和Swin-Base
-的模型其实性能更好暂不公开。
+Portraitmatting 是一个基于深度学习的模型，专为人像抠图任务设计。由于训练数据可能涉及版权问题，仅限于学术用途，禁止用于商业用途。同时由于标注问题，模型对一些装饰物可能预测不准。测试中发现Swin-Tiny和Swin-Base
+的模型其实性能更好，但目前暂无计划公开。
 
 ## 环境要求
 
 - OpenCV
 - PyTorch
 - NumPy
+- Pymatting (用于前景提取)
 
 ## 硬件要求
 
