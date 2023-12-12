@@ -74,6 +74,12 @@ Portraitmatting 是一个基于深度学习的模型，专为人像抠图任务�
 
 如果您在研究中使用了该模型，请引用此项目以表示对其贡献的认可。
 
+## 补充信息
+
+需要注意，我们在eval_image_folder.py提取素材时使用了Pymatting库提取前景。该过程也可以使用Closed form matting提取，不过速度会慢一些
+
+## 参考文献
+
 ```plaintext
 @misc{liu2023mat,
   author       = {Qinglin Liu},

@@ -3,7 +3,8 @@ import numpy as np
 import model
 import os
 import cv2
-
+from pymatting import *
+return_fg=False
 maxhw = 640
 folderpath = './Images/'
 outpath = './Outs/'
@@ -16,6 +17,7 @@ if __name__ == '__main__':
     files = os.listdir(folderpath)
     for file in files:
         im = cv2.imread(folderpath + file)
+        im_copy=im
         fh, fw, _ = im.shape
         fh, fw, _ = im.shape
         if fh > fw:
@@ -41,4 +43,10 @@ if __name__ == '__main__':
         alpha = alpha[0, 0].cpu().numpy()
         alpha = alpha.astype(np.uint8)
         alpha = cv2.resize(alpha, (fw, fh), interpolation=cv2.INTER_CUBIC)
-        cv2.imwrite(outpath + file[:-3] + 'png', alpha)
+        if return_fg:
+            fg=estimate_foreground(im_copy/255., alpha/255.)*255.
+            fg=fg.astype(np.uint8)
+            image=np.concatenate((fg,alpha[:, :, np.newaxis]),axis=2)
+            cv2.imwrite(outpath + file[:-3] + 'png', image)
+        else:
+            cv2.imwrite(outpath + file[:-3] + 'png', alpha)
