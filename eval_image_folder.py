@@ -5,7 +5,7 @@ import os
 import cv2
 from pymatting import *
 return_fg=False
-maxhw = 640
+maxhw = 768
 folderpath = './Images/'
 outpath = './Outs/'
 os.makedirs(outpath, exist_ok=True)

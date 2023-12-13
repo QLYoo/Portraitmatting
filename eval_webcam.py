@@ -3,7 +3,7 @@ import numpy as np
 import model
 import cv2
 from pymatting import *
-maxhw = 512
+maxhw = 768
 high_quality = False
 background='bg.jpg'
 def resize_image(im):

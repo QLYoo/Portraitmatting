@@ -21,7 +21,13 @@ You may check eval_image_folder.py or eval_webcam.py for an example of how to us
 
 A CUDA-ready GPU is required for efficient inference. The model has been tested on an NVIDIA GeForce RTX 2080 Ti, achieving 125 FPS on 640x640 images during inference.
 
-## Model Architecture
+## Model Download
+
+A demo model is available for download at the following links:
+
+- [Portraitmatting-R34](https://wwlv.lanzout.com/ir9go1hq9cbc)
+
+## Network Architecture
 
 The model adopts an encoder-decoder structure based on ResNet-34. It incorporates the Pyramid Pooling Module (PPM) in the middle to extract multi-scale features, although the effectiveness of this module has not been thoroughly evaluated.
 
@@ -58,11 +64,17 @@ Portraitmatting 是一个基于深度学习的模型，专为人像抠图任务�
 - NumPy
 - Pymatting (用于前景提取)
 
+## 模型下载
+
+请访问以下链接下载
+
+- [Portraitmatting-R34](https://wwlv.lanzout.com/ir9go1hq9cbc)
+
 ## 硬件要求
 
 为了高效推断模型，应使用Nvidia GPU设备。该模型在NVIDIA GeForce RTX 2080 Ti推理可达到125 FPS速度。
 
-## 模型架构
+## 网络架构
 
 该模型采用基于 ResNet-34 的编码器-解码器结构。中间使用了金字塔池化模块（PPM）来提取多尺度特征，但该模块的有效性尚未评估。
 
@@ -70,13 +82,14 @@ Portraitmatting 是一个基于深度学习的模型，专为人像抠图任务�
 
 该模型不提供许可证，仅供学术使用。由于训练数据可能存在版权限制，禁止商业使用。
 
-## 引用
-
-如果您在研究中使用了该模型，请引用此项目以表示对其贡献的认可。
-
 ## 补充信息
 
 需要注意，我们在eval_image_folder.py提取素材时使用了Pymatting库提取前景。该过程也可以使用Closed form matting提取，不过速度会慢一些
+
+
+## 引用
+
+如果您在研究中使用了该模型，请引用此项目以表示对其贡献的认可。
 
 ## 参考文献
 
