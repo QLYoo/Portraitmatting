@@ -72,7 +72,7 @@ Portraitmatting 是一个基于深度学习的模型，专为人像抠图任务�
 
 ## 硬件要求
 
-为了高效推断模型，应使用Nvidia GPU设备。该模型在NVIDIA GeForce RTX 2080 Ti推理可达到125 FPS速度。
+为了高效推断模型，应使用Nvidia GPU设备。该模型在NVIDIA GeForce RTX 2080 Ti推理可达到125 FPS速度(640x640分辨率)。
 
 ## 网络架构
 
@@ -90,8 +90,6 @@ Portraitmatting 是一个基于深度学习的模型，专为人像抠图任务�
 ## 引用
 
 如果您在研究中使用了该模型，请引用此项目以表示对其贡献的认可。
-
-## 参考文献
 
 ```plaintext
 @misc{liu2023mat,
