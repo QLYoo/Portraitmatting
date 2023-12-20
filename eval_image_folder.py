@@ -10,8 +10,8 @@ folderpath = './Images/'
 outpath = './Outs/'
 os.makedirs(outpath, exist_ok=True)
 if __name__ == '__main__':
-    matmodel = model.Basicmatting()
-    matmodel.load_state_dict(torch.load('res34.ckpt', map_location='cpu'))
+    matmodel = model.BasicmattingNEO()
+    matmodel.load_state_dict(torch.load('swinmat.ckpt', map_location='cpu'))
     matmodel.eval()
     matmodel = matmodel.cuda()
     files = os.listdir(folderpath)

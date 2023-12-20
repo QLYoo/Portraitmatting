@@ -18,8 +18,8 @@ def resize_image(im):
     return im
 
 if __name__ == '__main__':
-    matmodel = model.Basicmatting()
-    matmodel.load_state_dict(torch.load('res34.ckpt', map_location='cpu'))
+    matmodel = model.BasicmattingNEO()
+    matmodel.load_state_dict(torch.load('swinmat.ckpt', map_location='cpu'))
     matmodel.eval()
     matmodel = matmodel.cuda()
     cap = cv2.VideoCapture(0)
@@ -45,7 +45,7 @@ if __name__ == '__main__':
         alls = torch.cat([Tm], 1)
         with torch.no_grad():
             alpha, tri = matmodel(alls)
-        alpha = (torch.clamp((alpha + 1) * 127.5, 0, 255))
+        alpha = (torch.clamp(alpha, 0, 1))*255.
         tri = torch.argmax(tri, 1, keepdim=True)
         alpha = alpha * (tri == 1) + (tri == 2) * 255
         alpha = alpha[0, 0].cpu().numpy()
@@ -54,7 +54,7 @@ if __name__ == '__main__':
         if high_quality:
             fg=estimate_foreground(frame/255., alpha/255.)*255.
         else:
-            fg=frame
+            fg=frame*1.
         alpha=alpha[:, :, None]
         newimage=fg*(alpha/255.)+bg*(1.-alpha/255.)
         newimage=np.array(newimage,dtype=np.uint8)

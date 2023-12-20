@@ -1,10 +1,10 @@
-# Portraitmatting WIP
+# Portraitmatting
 
 Portrait matting model for academic use only.
 
 ## Introduction
 
-Portraitmatting is a deep learning-based model designed for portrait matting tasks. It is intended for academic use only, and usage for commercial purposes is restricted due to potential copyright concerns with the training data. We also evaluate the Swin-Tiny and Swin-Base based networks, which achieve better performance. However, we do not plan to release them for now.
+Portraitmatting is a deep learning-based model designed for portrait matting tasks. It is intended for academic use only, and usage for commercial purposes is restricted due to potential copyright concerns with the training data. 
 
 ## Usage
 
@@ -25,11 +25,12 @@ A CUDA-ready GPU is required for efficient inference. The model has been tested 
 
 A demo model is available for download at the following links:
 
-- [Portraitmatting-R34](https://wwlv.lanzout.com/ir9go1hq9cbc)
+- [Portraitmatting-SwinT](https://mega.nz/file/KIwHkAYB#U0TyXVIBCE9qBoUOcFGYsQs5JGkQdRe2ZnVXGVx0Dxw)
+- [Portraitmatting-SwinT(EMA)](https://mega.nz/file/XdZnSQ5S#0M7-YHrShoGY8iBP0kHvUkia5KUYhvkob12L78KdHLI)
 
 ## Network Architecture
 
-The model adopts an encoder-decoder structure based on ResNet-34. It incorporates the Pyramid Pooling Module (PPM) in the middle to extract multi-scale features, although the effectiveness of this module has not been thoroughly evaluated.
+The model adopts an encoder-decoder structure based on Swin-Tiny. It incorporates the Pyramid Pooling Module (PPM) in the middle to extract multi-scale features, although the effectiveness of this module has not been thoroughly evaluated.
 
 ## Training Details
 
@@ -54,8 +55,7 @@ If you use this model in your research, please cite this project to acknowledge 
 
 ## 介绍
 
-Portraitmatting 是一个基于深度学习的模型，专为人像抠图任务设计。由于训练数据可能涉及版权问题，仅限于学术用途，禁止用于商业用途。同时由于标注问题，模型对一些装饰物可能预测不准。测试中发现Swin-Tiny和Swin-Base
-的模型其实性能更好，但目前暂无计划公开。
+Portraitmatting 是一个基于深度学习的模型，专为人像抠图任务设计。由于训练数据可能涉及版权问题，仅限于学术用途，禁止用于商业用途。同时由于标注问题，模型对一些装饰物可能预测不准，但应该是公开的最靠谱的模型了。
 
 ## 环境要求
 
@@ -68,15 +68,16 @@ Portraitmatting 是一个基于深度学习的模型，专为人像抠图任务�
 
 请访问以下链接下载
 
-- [Portraitmatting-R34](https://wwlv.lanzout.com/ir9go1hq9cbc)
+- [Portraitmatting-SwinT](https://mega.nz/file/KIwHkAYB#U0TyXVIBCE9qBoUOcFGYsQs5JGkQdRe2ZnVXGVx0Dxw)
+- [Portraitmatting-SwinT(EMA)](https://mega.nz/file/XdZnSQ5S#0M7-YHrShoGY8iBP0kHvUkia5KUYhvkob12L78KdHLI)
 
 ## 硬件要求
 
-为了高效推断模型，应使用Nvidia GPU设备。该模型在NVIDIA GeForce RTX 2080 Ti推理可达到125 FPS速度(640x640分辨率)。
+为了高效推断模型，应使用Nvidia GPU设备。
 
 ## 网络架构
 
-该模型采用基于 ResNet-34 的编码器-解码器结构。中间使用了金字塔池化模块（PPM）来提取多尺度特征，但该模块的有效性尚未评估。
+该模型采用基于Swin-Tiny的编码器-解码器结构。中间使用了金字塔池化模块（PPM）来提取多尺度特征，但该模块的有效性尚未评估。
 
 ## 许可证
 
@@ -84,8 +85,7 @@ Portraitmatting 是一个基于深度学习的模型，专为人像抠图任务�
 
 ## 补充信息
 
-需要注意，我们在eval_image_folder.py提取素材时使用了Pymatting库提取前景。该过程也可以使用Closed form matting提取，不过速度会慢一些
-
+需要注意，我们在eval_image_folder.py提取素材时使用了Pymatting库提取前景。该过程也可以使用Closed form matting提取，不过速度会慢一些。
 
 ## 引用
 
