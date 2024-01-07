@@ -68,8 +68,8 @@ Portraitmatting 是一个基于深度学习的模型，专为人像抠图任务�
 
 请访问以下链接下载
 
-- [Portraitmatting-SwinT](https://mega.nz/file/KIwHkAYB#U0TyXVIBCE9qBoUOcFGYsQs5JGkQdRe2ZnVXGVx0Dxw)
-- [Portraitmatting-SwinT(EMA)](https://mega.nz/file/XdZnSQ5S#0M7-YHrShoGY8iBP0kHvUkia5KUYhvkob12L78KdHLI)
+- [Portraitmatting-SwinT BaiduPan](https://pan.baidu.com/s/1VUsM42y1YWRZWY1uXlRAnw?pwd=ku4v)
+- [Portraitmatting-SwinT(EMA) BaiduPan](https://pan.baidu.com/s/1VUsM42y1YWRZWY1uXlRAnw?pwd=ku4v)
 
 ## 硬件要求
 
