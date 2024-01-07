@@ -25,7 +25,7 @@ A CUDA-ready GPU is required for efficient inference. The model has been tested 
 
 A demo model is available for download at the following links:
 
-- [Portraitmatting-R34](https://wwlv.lanzout.com/ir9go1hq9cbc)
+- [Portraitmatting-R34](https://mega.nz/file/PMxAWIRA#tYKCyCFXX_Hjl8IMTopMz6lJVnVjNZMueOJzRbGYM14)
 
 ## Network Architecture
 
@@ -68,7 +68,7 @@ Portraitmatting 是一个基于深度学习的模型，专为人像抠图任务�
 
 请访问以下链接下载
 
-- [Portraitmatting-R34](https://wwlv.lanzout.com/ir9go1hq9cbc)
+- [Portraitmatting-R34](https://mega.nz/file/PMxAWIRA#tYKCyCFXX_Hjl8IMTopMz6lJVnVjNZMueOJzRbGYM14)
 
 ## 硬件要求
 

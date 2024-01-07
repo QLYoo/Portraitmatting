@@ -220,17 +220,17 @@ def resnet34(pretrained: bool = True,) :
     return _resnet('resnet34', BasicBlock, [3, 4, 6, 3], pretrained)
 
 
-class PPM(nn.Module):
+class PPMNEO(nn.Module):
     def __init__(self, in_dim,mid, reduction_dim, bins):
-        super(PPM, self).__init__()
+        super(PPMNEO, self).__init__()
         self.features = []
         self.comp=nn.Conv2d(in_dim, mid, kernel_size=1, bias=True)
-        self.features = nn.ModuleList([self._make_ppm(mid, reduction_dim, [bin,bin]) for bin in bins])
+        self.features = nn.ModuleList([self._make_ppm(mid, reduction_dim, bin) for bin in bins])
         self.bins = bins
 
     def _make_ppm(self, in_dim, reduction_dim, bin):
         return nn.Sequential(
-            nn.AdaptiveAvgPool2d(bin),
+            nn.AvgPool2d(bin, stride=bin, padding=(bin-1)//2, count_include_pad=False),
             nn.Conv2d(in_dim, reduction_dim, kernel_size=1, bias=False),
             nn.BatchNorm2d(reduction_dim),
             nn.ReLU(inplace=True)
@@ -273,15 +273,16 @@ class Basicmatting(nn.Module):
     def __init__(self):
         super(Basicmatting, self).__init__()
         self.resnet=resnet34(pretrained=False)
-        self.ppm=PPM(512,256,128,[1,2,3,6])
+        self.ppm=PPMNEO(512,256,128,[3,7,11,15])
         self.dec0=nn.Sequential(nn.Conv2d(1024,256,1,1,0),ResBlock(256,192),ResBlock(256,192))
         self.dec1=nn.Sequential(nn.Conv2d(512,192,1,1,0),ResBlock(192,128),ResBlock(192,128))
         self.dec2=nn.Sequential(nn.Conv2d(320,128,1,1,0),ResBlock(128,96),ResBlock(128,96))
         self.dec3=nn.Sequential(nn.Conv2d(192,96,1,1,0),ResBlock(96,64),ResBlock(96,64))
         self.dec4=nn.Sequential(nn.Conv2d(128,48,1,1,0),ResBlock(48,32),ResBlock(48,32))
         self.deco=nn.Sequential(nn.Conv2d(128,128,1,1,0),nn.BatchNorm2d(128),nn.ReLU(),nn.Conv2d(128,128,1,1,0),nn.BatchNorm2d(128),nn.ReLU(),nn.Dropout(0.2),nn.Conv2d(128,3,1,1,0),nn.Upsample(scale_factor=2,mode='bilinear',align_corners=False))
-        self.up=nn.Upsample(scale_factor=2,mode='bilinear',align_corners=True)
+        self.up=nn.Upsample(scale_factor=2,mode='bilinear',align_corners=False)
         self.dec5=nn.Sequential(nn.Conv2d(48+16,24,3,1,1),nn.PReLU(24),nn.Conv2d(24,1,3,1,1))
+
     def forward(self, x):
         x,x1,x2,x3,x4,x5,x6=self.resnet(x)
         outfeat=self.ppm(x6)
@@ -303,7 +304,6 @@ class Basicmatting(nn.Module):
         outfeat=torch.cat((outfeat,x),1)
         outfeat=self.dec5(outfeat)
         return outfeat,tri
-
 
 if __name__ == '__main__':
     a=Basicmatting().cuda()

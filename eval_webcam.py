@@ -3,7 +3,7 @@ import numpy as np
 import model
 import cv2
 from pymatting import *
-maxhw = 768
+maxhw = 640
 high_quality = False
 background='bg.jpg'
 def resize_image(im):
@@ -45,7 +45,7 @@ if __name__ == '__main__':
         alls = torch.cat([Tm], 1)
         with torch.no_grad():
             alpha, tri = matmodel(alls)
-        alpha = (torch.clamp((alpha + 1) * 127.5, 0, 255))
+        alpha = torch.clamp(alpha, 0., 1.)*255.
         tri = torch.argmax(tri, 1, keepdim=True)
         alpha = alpha * (tri == 1) + (tri == 2) * 255
         alpha = alpha[0, 0].cpu().numpy()
