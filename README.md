@@ -19,7 +19,7 @@ You may check eval_image_folder.py or eval_webcam.py for an example of how to us
 
 ## Hardware Requirements
 
-A CUDA-ready GPU is required for efficient inference. The model has been tested on an NVIDIA GeForce RTX 2080 Ti, achieving 125 FPS on 640x640 images during inference.
+A CUDA-ready GPU is required for efficient inference. The model has been tested on an NVIDIA GeForce RTX 2080 Ti.
 
 ## Model Download
 
